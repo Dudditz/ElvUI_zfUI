@@ -1,0 +1,13 @@
+## Interface: 120000
+## Title: |cff1784d1ElvUI|r fUI Edui
+## Notes: Simple edits for fUI
+## Author: fUSE
+## Version: 11.1.5-10
+## RequiredDeps: ElvUI
+
+Core.lua
+Keystone.lua
+Meter.lua
+Meterskin.lua
+MyBestRun.lua
+##Mythicplus.lua

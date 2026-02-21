@@ -1,0 +1,63 @@
+local function OnMythicReset()
+    mythicPlusDataCache[playerGUID] = nil
+end
+
+frame:RegisterEvent("WEEKLY_REWARDS_UPDATE")
+frame:SetScript("OnEvent", OnMythicReset)
+
+local mythicPlusDataCache = {}
+local function GetMythicPlusData(playerGUID)
+    if mythicPlusDataCache[playerGUID] then
+        return mythicPlusDataCache[playerGUID]
+    end
+    local data = C_PlayerInfo_GetPlayerMythicPlusRatingSummary(playerGUID)
+    if not data or not data.runs then return end
+    -- Process runs...
+    mythicPlusDataCache[playerGUID] = data
+    return data
+end
+
+
+Dump: value=C_MythicPlus.GetSeasonBestForMap(391) 
+[1]={ 
+  durationSec=1439, 
+  completionDate={ 
+    year=26, 
+    month=0, 
+    weekday=1, 
+    minute=2, 
+    hour=3, 
+    day=10 
+  }, 
+  affixIDs={ 
+    [1]=148 
+  }, 
+  level=4, 
+  members={ 
+    [1]={ 
+      specID=251, 
+      name="Dhestruction", 
+      classID=6 
+    }, 
+    [2]={ 
+      specID=258, 
+      name="Dgralux", 
+      classID=5 
+    }, 
+    [3]={ 
+      specID=64, 
+      name="Tipsybopeep", 
+      classID=8 
+    }, 
+    [4]={ 
+      specID=104, 
+      name="Dratèrami", 
+      classID=11 
+    }, 
+    [5]={ 
+      specID=264, 
+      name="Rodah", 
+      classID=7 
+    } 
+  }, 
+  dungeonScore=212 
